@@ -6,3 +6,6 @@
 table {
     width: 80%
 }
+.navbar-end {
+    margin-right: 50px;
+}
