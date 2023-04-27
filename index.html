@@ -68,7 +68,8 @@
           </div>
         </div>
     </nav>
-    <div class="field is-grouped">
+  <div class="columns">
+    <div class="field is-grouped column is-one-third mx-6">
       <p class="control is-expanded">
         <input class="input" id="searchBar" type="text" placeholder="Find a book">
       </p>
@@ -77,27 +78,28 @@
           Search
         </a>
       </p>
+    </div>
+    <div class="column is-two-thirds mx-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>Info</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="bookColumns">
+            <th id="books"></th>
+            <td id="authorName">Author Name</td>
+            <td>Whatever else</td>
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>
   </div>
-
-  <table class="table">
-      <thead>
-        <tr>
-          <th>Book Title</th>
-          <th>Author</th>
-          <th>Info</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr id="bookColumns">
-          <th id="books"></th>
-          <td id="authorName">Author Name</td>
-          <td>Whatever else</td>
-        </tr>
-       
-      </tbody>
-    </table>
-
-    
+  
     <footer class="footer">
         <div class="content has-text-centered">
           <p>
