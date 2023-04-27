@@ -69,42 +69,33 @@
         </div>
     </nav>
     <div class="field is-grouped">
-        <p class="control is-expanded">
-          <input class="input" type="text" placeholder="Find a repository">
-        </p>
-        <p class="control">
-          <a class="button is-info">
-            Search
-          </a>
-        </p>
-      </div>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Book Title</th>
-            <th>Author</th>
-            <th>Info</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>Book Name</th>
-            <td>Author Name</td>
-            <td>Whatever else</td>
-          </tr>
-          <tr>
-            <th>Book Name</th>
-            <td>Author Name</td>
-            <td>Whatever else</td>
-          </tr>
-          <tr>
-            <th>Book Name</th>
-            <td>Author Name</td>
-            <td>Whatever else</td>
-          </tr>
-        </tbody>
-      </table>
+      <p class="control is-expanded">
+        <input class="input" id="searchBar" type="text" placeholder="Find a book">
+      </p>
+      <p class="control">
+        <a class="button is-info" id="search">
+          Search
+        </a>
+      </p>
+  </div>
 
+  <table class="table">
+      <thead>
+        <tr>
+          <th>Book Title</th>
+          <th>Author</th>
+          <th>Info</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="bookColumns">
+          <th id="books"></th>
+          <td id="authorName">Author Name</td>
+          <td>Whatever else</td>
+        </tr>
+       
+      </tbody>
+    </table>
 
     
     <footer class="footer">
@@ -114,6 +105,8 @@
           </p>
         </div>
       </footer>
-    <script src="./assets/js/script.js"></script>
+
 </body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="./assets/js/script.js"></script>
 </html>
