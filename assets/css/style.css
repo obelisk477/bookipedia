@@ -3,6 +3,17 @@
     flex-direction: column;
 }
 
+#authorName{
+    display: flex;
+    flex-direction: column;
+}
+#bookColumns{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly
+}
+
 table {
     width: 80%
 }
+
