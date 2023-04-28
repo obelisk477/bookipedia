@@ -1,6 +1,7 @@
 var searchBtn = $('#search'); 
 var searchBar = $('#searchBar');
 var booksList = $("#books");
+var authorName = $("#authorName"); 
 var bookColumns = $("#bookColumns"); 
 var search = searchBar.textContent; 
 
@@ -32,6 +33,9 @@ function getBooks(books){
             var th = document.createElement("th");
             booksList[0].appendChild(th);
             th.innerText = data.items[i].volumeInfo.title;
+            var td = document.createElement("td");
+            authorName[0].appendChild(td);
+            td.innerText = data.items[i].volumeInfo.authors;
            } 
         });
         } else {
