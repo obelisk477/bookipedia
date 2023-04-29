@@ -23,21 +23,32 @@
         </div>
       
         <div class="navbar-menu">
+          <div class="navbar-start">
+              <p class="control is-expanded">
+                <input class="input" id="searchBar" type="text" placeholder="Find a book">
+              </p>
+              <p class="control">
+                <a class="button is-info" id="search">
+                  Search
+                </a>
+              </p>
+          </div>
           <div class="navbar-end">
             <a class="navbar-item">
               Home
             </a>
+            <a class="navbar-item">
+              Favorites
+            </a>
             <a class="navbar-item" href="https://github.com/obelisk477/bookipedia" target="_blank">
               Documentation
-            </a>
-            <a class="navbar-item">
-                  Report an issue
             </a>
           </div>
         </div>
     </nav>
   <div class="columns">
-    <div class="field is-grouped column is-one-third mx-6">
+    <!-- WHERE SEARCH WAS 
+      <div class="field is-grouped column is-one-third mx-6">
       <p class="control is-expanded">
         <input class="input" id="searchBar" type="text" placeholder="Find a book">
       </p>
@@ -46,10 +57,10 @@
           Search
         </a>
       </p>
-    </div>
-    <div class="column is-two-thirds mx-6">
-      <table class="table">
-        <thead>
+    </div> -->
+    <!-- <div class="column is-two-thirds mx-6"> -->
+      <table id="table" class="table">
+        <!-- <thead>
           <tr>
             <th>Book Title</th>
             <th>Author</th>
@@ -63,10 +74,20 @@
             <td>Whatever else</td>
           </tr>
          
-        </tbody>
+        </tbody> -->
       </table>
-    </div>
+    <!-- </div> -->
   </div>
+  <section id= "intro" class="intro">
+    <h1> Welcome to Bookipedia</h1>
+    <p> Do you enjoy reading and want to learn more
+      about your favorite books? Or simply want to find new books
+      to love?
+    </p>
+    <p> Then you're in the right place! Click the search
+      button and start exploring. 
+    </p>
+  </section>
 
     <footer class="footer">
         <div class="content has-text-centered">

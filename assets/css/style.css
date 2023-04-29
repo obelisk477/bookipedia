@@ -1,3 +1,16 @@
+:root { 
+    /* for later */
+    --primary: ;
+    --secondary: ;
+    --highlights: ;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 #books{
     display: flex;
     flex-direction: column;
@@ -17,3 +30,29 @@ table {
     width: 80%
 }
 
+nav {
+    margin: 10px;
+}
+nav .control {
+    margin-top: 5px;
+}
+
+.intro{
+    text-align: center;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.intro h1 {
+    font-size: 35px;
+    padding: 20px;
+}
+
+.intro p {
+    font-size: 18px;
+    padding: 5px;
+}
+
+footer {
+    margin-top: 10px;
+}
