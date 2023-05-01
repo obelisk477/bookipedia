@@ -11,6 +11,7 @@ let author = "";
 //Removed function from click event to allow search with 'submit'/enter key OR clicking button
 searchBtn.on("click", function(){
    doSearch();
+   $("#intro").hide()
 });
 searchForm.on("submit",function(event){
   doSearch();
@@ -102,7 +103,7 @@ function getBooks(books){
     
             let cuteBookCard = createBookCard(thumbnail_url, title, authorTag, year, description)
             booksList[0].appendChild(cuteBookCard);
-            $("#intro").hide();
+            // $("#intro").hide();
           })
         } else {
           //createElement on article which uses the format of bulma for a tweet layout, just modified slightly 
