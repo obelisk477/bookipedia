@@ -8,8 +8,8 @@ var searchForm = $("#searchForm")
 
 
 //Removed function from click event to allow search with 'submit'/enter key OR clicking button
-searchBtn.on("click",function(){
-  doSearch();
+searchBtn.on("click", function(){
+   doSearch();
 });
 searchForm.on("submit",function(event){
   doSearch();
@@ -107,6 +107,7 @@ function getBooks(books){
           }
         });
         //Just error stuff lol 
+        $("#intro").hide();
         } else {
           alert('Error: ' + response.statusText);
         }
