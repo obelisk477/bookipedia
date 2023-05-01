@@ -15,6 +15,7 @@ searchBtn.on("click", function(){
 });
 searchForm.on("submit",function(event){
   doSearch();
+  $("#intro").hide()
 })
 
 
