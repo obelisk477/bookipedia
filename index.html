@@ -24,14 +24,16 @@
       
         <div class="navbar-menu">
           <div class="navbar-start">
-              <p class="control is-expanded">
-                <input class="input" id="searchBar" type="text" placeholder="Find a book">
-              </p>
-              <p class="control">
-                <a class="button is-info" id="search">
-                  Search
-                </a>
-              </p>
+            <form class="field is-grouped" onsubmit="event.preventDefault();" id="searchForm">
+                <p class="control is-expanded">
+                  <input class="input" id="searchBar" type="text" placeholder="Find a book">
+                </p>
+                <p class="control">
+                  <a class="button is-info" id="search">
+                    Search
+                  </a>
+                </p>
+            </form>
           </div>
           <div class="navbar-end">
             <a class="navbar-item">
@@ -46,39 +48,11 @@
           </div>
         </div>
     </nav>
-  <div class="columns">
-    <!-- WHERE SEARCH WAS 
-      <div class="field is-grouped column is-one-third mx-6">
-      <p class="control is-expanded">
-        <input class="input" id="searchBar" type="text" placeholder="Find a book">
-      </p>
-      <p class="control">
-        <a class="button is-info" id="search">
-          Search
-        </a>
-      </p>
-    </div> -->
-    <!-- <div class="column is-two-thirds mx-6"> -->
-      <table id="table" class="table">
-        <!-- <thead>
-          <tr>
-            <th>Book Title</th>
-            <th>Author</th>
-            <th>Info</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="bookColumns">
-            <th id="books"></th>
-            <td id="authorName"></td>
-            <td>Whatever else</td>
-          </tr>
-         
-        </tbody> -->
-      </table>
-    <!-- </div> -->
-  </div>
-  <section id= "intro" class="intro">
+    <div id="books"></div>
+  
+  
+  
+<section id= "intro" class="intro">
     <h1> Welcome to Bookipedia</h1>
     <p> Do you enjoy reading and want to learn more
       about your favorite books? Or simply want to find new books
