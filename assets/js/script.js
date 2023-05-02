@@ -112,11 +112,18 @@ function getBooks(books){
           let cuteBookCard = createBookCard(thumbnail_url, title, author, year, description)
           booksList[0].appendChild(cuteBookCard);
         }
-    }})}
+        
+      }
+      
+      
+
+    
+
+    })}
 
   function createBookCard(thumbnailLink, title, author, year, description) {
     let cuteBookCard = document.createElement("article")
-    cuteBookCard.className = "media"
+    cuteBookCard.className = "media m-5"
     cuteBookCard.innerHTML=`
     <figure class="media-left"> 
       <p class="image is-64x64">
@@ -133,10 +140,33 @@ function getBooks(books){
         ${description}
         </p>
       </div>
-    </div>`;
+    </div>
+    <i class="fa-solid fa-2xl fa-book-medical"></i>`;
+    let bookIcon = cuteBookCard.querySelector('.fa-solid')
+    bookIcon.addEventListener('click', handleFavoriteClick )
     return cuteBookCard
   }
 
+function handleFavoriteClick(event) {
+  let bookIcon = event.target
+  bookIcon.classList.add('fa-beat-fade')
+  setTimeout(() => {
+    bookIcon.classList.remove('fa-beat-fade')
+  }, 850)
 
+  let favoriteBooks = JSON.parse(localStorage.getItem('favoriteBooks'))
+  let favoriteTitle = event.target.parentElement.children[1].querySelector('p').innerText
+  
+  if (!favoriteBooks) {
+    localStorage.setItem('favoriteBooks', JSON.stringify([]))
+  }
+
+  if (favoriteBooks) {
+    if (favoriteBooks.indexOf(favoriteTitle) < 0 ) {
+      favoriteBooks.push(favoriteTitle)
+    } 
+  }
+  localStorage.setItem('favoriteBooks', JSON.stringify(favoriteBooks))
+}
 
 
