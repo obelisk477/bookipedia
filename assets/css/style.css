@@ -48,6 +48,16 @@ nav .control {
     padding: 20px;
 }
 
+.article {
+    align-items: center;
+}
+
+.fa-book-medical{
+    padding-top: 4%;
+    padding-left: 40px;
+    /* line-height: 50px; */
+}
+
 .intro p {
     font-size: 18px;
     padding: 5px;
@@ -56,3 +66,4 @@ nav .control {
 footer {
     margin-top: 10px;
 }
+
