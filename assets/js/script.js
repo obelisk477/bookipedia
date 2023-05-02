@@ -119,7 +119,7 @@ function getBooks(books){
     cuteBookCard.className = "media"
     cuteBookCard.innerHTML=`
     <figure class="media-left"> 
-      <p class="image is-64x64">
+      <p class="image is-71x71">
         <img src="${thumbnailLink}">
       </p>
     </figure>

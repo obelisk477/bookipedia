@@ -4,7 +4,6 @@
     --secondary: ;
     --highlights: ;
 }
-
 * {
     margin: 0;
     padding: 0;
@@ -32,6 +31,7 @@ table {
 
 nav {
     margin: 10px;
+    
 }
 nav .control {
     margin-top: 5px;
@@ -56,3 +56,5 @@ nav .control {
 footer {
     margin-top: 10px;
 }
+
+
