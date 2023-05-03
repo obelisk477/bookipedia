@@ -14,7 +14,8 @@
 #books{
     display: flex;
     flex-direction: column;
-    padding: 25px;
+    margin-top: 15px;
+    /* padding: 25px; */
 }
 
 #authorName{
@@ -27,10 +28,22 @@
     justify-content:space-evenly
 }
 #search {
-    background-color: var(--secondary);
+    /* background-color: var(--secondary); */
+    background-color: #d38b5d;
+    ;
 }
 #footer {
-    background-color: var(--primary);
+    /* background-color: var(--primary); */
+    background-color: #739e82;
+}
+h1 {
+    font-weight: bolder;
+}
+
+h1,
+p {
+    color: black;
+
 }
 
 table {
@@ -44,9 +57,12 @@ nav {
 nav .control {
     margin-top: 5px;
 }
-
+strong {
+    color: black;
+}
 a.navbar-item:hover {
-    color: var(--secondary); 
+    /* color: var(--secondary);  */
+    color: #739e82;
     cursor:pointer;  
 }
 
@@ -66,15 +82,15 @@ a.navbar-item:hover {
     padding: 5px;
 }
 .navbar {
-    background-color: var(--primary);
+    background-color: #739e82;
 }
 .navbar-item{
     color: black;
 }
 
 .footer {
-    background-color: var(--primary);
-
+    /* background-color: var(--primary); */
+    background-color: #739e82;
 }
 
 footer {
