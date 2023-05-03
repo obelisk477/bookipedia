@@ -107,6 +107,29 @@ a.navbar-item:hover {
     margin-top: 10px;
 }
 
+#modal {
+    padding: 10px;
+    top: 30%;
+    left: 50%;
+    translate: -50% -50%;
+    border: none;
+    border-radius: 5px;
+    width: 30%
+}
+
+#modal p {
+    width: 100%;
+    text-align: center;
+}
+
+#modal > * {
+    padding: 10px;
+}
+
+#close-modal {
+    width: 30%;
+    margin-left: 35%
+}
 
 .collapsed {
     display: -webkit-box;

@@ -7,7 +7,13 @@ let searchForm = $("#searchForm")
 let author = "";
 let favoritesBtn = $("#favorite")
 let favoriteSection = $("#favoriteSection");
+
+let modal = document.getElementById("modal")
+let closeModalBtn = document.getElementById("close-modal")
+
+=======
 let footerclass = document.querySelector(".footer");  
+
 
 //Removed function from click event to allow search with 'submit'/enter key OR clicking button
 searchBtn.on("click", function(){
@@ -76,7 +82,8 @@ function doSearch() {
   booksList[0].innerHTML = ""; 
   let search = searchBar.val();
   if (search == ''){
-      alert("Please enter something in the search bar")
+      modal.getElementsByTagName('p')[0].innerText = "Please enter a book to search."
+      modal.showModal()
   }
   else {
      getBooks(search); 
@@ -107,7 +114,12 @@ function getBooks(books){
       if (response.ok) {
         return response.json()
       } else {
-        alert('Error: ' + response.statusText);
+        response.json().then((data) => {
+          console.log(data)
+          modal.getElementsByTagName('p')[0].innerText = "Error: " + data.error.message
+          modal.showModal()
+          return
+        })
       }
     })
     .then(function (data) {
@@ -262,4 +274,6 @@ storeFavs(favoriteTitle, favoriteAuthor, favoriteYear, favoriteDescription, favo
  
 }
 
-
+closeModalBtn.addEventListener('click', () => {
+  modal.close()
+})

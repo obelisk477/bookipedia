@@ -17,6 +17,8 @@ If you'd like to view your favorite saved books, simply  click on the 'Favorites
 
 Built by Aipu Ameh, Arianne Pandini, Chad Batten, and Joshua Wong
 
+Dialogue HTML element overview learned from [WebDevSimplified](https://www.youtube.com/@WebDevSimplified)
+
 This project uses the following libraries and frameworks:
 
 - [Bulma IO v0.9.4](https://bulma.io/) -- CSS Framework
