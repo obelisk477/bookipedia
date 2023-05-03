@@ -11,7 +11,7 @@ let favoriteSection = $("#favoriteSection");
 let modal = document.getElementById("modal")
 let closeModalBtn = document.getElementById("close-modal")
 
-=======
+
 let footerclass = document.querySelector(".footer");  
 
 
