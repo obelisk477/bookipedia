@@ -58,6 +58,16 @@ a.navbar-item:hover {
     padding: 20px;
 }
 
+.article {
+    align-items: center;
+}
+
+.fa-book-medical{
+    padding-top: 4%;
+    padding-left: 40px;
+    /* line-height: 50px; */
+}
+
 .intro p {
     font-size: 18px;
     padding: 5px;
@@ -67,12 +77,12 @@ a.navbar-item:hover {
 }
 .navbar-item{
     color: black;
+    font-weight: bold;
 }
 
 .footer {
     background-color: var(--primary);
 }
-
 #authorName{
     display: flex;
     flex-direction: column;
@@ -87,4 +97,12 @@ a.navbar-item:hover {
 }
 #footer {
     background-color: var(--primary);
+}
+#logo {
+    width: 200px;
+    max-height: none;
+    font-weight: bold;
+}
+#searchForm {
+    margin-top: 10px;
 }

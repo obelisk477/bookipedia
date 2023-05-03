@@ -112,11 +112,18 @@ function getBooks(books){
           let cuteBookCard = createBookCard(thumbnail_url, title, author, year, description)
           booksList[0].appendChild(cuteBookCard);
         }
-    }})}
+        
+      }
+      
+      
+
+    
+
+    })}
 
   function createBookCard(thumbnailLink, title, author, year, description) {
     let cuteBookCard = document.createElement("article")
-    cuteBookCard.className = "media"
+    cuteBookCard.className = "media m-5"
     cuteBookCard.innerHTML=`
     <figure class="media-left"> 
       <p class="image is-64x64">
@@ -133,10 +140,45 @@ function getBooks(books){
         ${description}
         </p>
       </div>
-    </div>`;
+    </div>
+    <i class="fa-solid fa-2xl fa-book-medical"></i>`;
+    let bookIcon = cuteBookCard.querySelector('.fa-solid')
+    bookIcon.addEventListener('click', handleFavoriteClick )
     return cuteBookCard
   }
 
+function handleFavoriteClick(event) {
+  let bookIcon = event.target
+  bookIcon.classList.add('fa-beat-fade')
+  setTimeout(() => {
+    bookIcon.classList.remove('fa-beat-fade')
+  }, 850)
 
+  let favoriteTitle = event.target.parentElement.children[1].querySelector('p').innerText;
+  let favoriteAuthor = event.target.parentElement.children[1].querySelector('a').innerText;
+  let favoriteYear = event.target.parentElement.children[1].querySelector('i').innerText;
+  let favoriteDescription = event.target.parentElement.children[1].querySelectorAll('p')[1].innerText;
+
+  let storeFavs = (...books) => {
+    let data = { "title":books[0], "author":books[1], "year":books[2], "description":books[3]}
+    var favoriteBooks = []
+    var books = {}
+
+    if (localStorage.getItem("favoriteBooks") === null){   
+        books.favoriteBooks = favoriteBooks
+    } else {
+        try {
+            books = JSON.parse(localStorage.getItem("favoriteBooks"));
+            console.log(books);
+        } catch {
+            books.favoriteBooks = favoriteBooks
+        }            
+    }
+    books.favoriteBooks.push(data);
+    localStorage.setItem("favoriteBooks", JSON.stringify(books));
+}
+storeFavs(favoriteTitle, favoriteAuthor, favoriteYear, favoriteDescription);
+ 
+}
 
 
