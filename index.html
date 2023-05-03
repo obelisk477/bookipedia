@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./assets/images/bookipediafavicon.png">
     <link rel ="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" text="text/style" href="./assets/css/style.css">
     <script src="https://kit.fontawesome.com/a93982e0d0.js" crossorigin="anonymous"></script>
@@ -14,7 +15,7 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item" href="./index.html">
-            <img src="./assets/images/icon.png" width="148" height="42" alt="Bookipedia Logo">
+            <img id="logo" src="./assets/images/bookipedialogo.png" alt="Bookipedia Logo">
           </a>
       
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -41,8 +42,7 @@
             <a class="navbar-item" href="./index.html">
               Home
             </a>
-            <a class="navbar-item">
-              Favorites
+            <a class="navbar-item"> Favorites
             </a>
             <a class="navbar-item" href="https://github.com/obelisk477/bookipedia" target="_blank">
               Documentation
@@ -50,23 +50,22 @@
           </div>
         </div>
     </nav>
-    <div id="books"></div>
+    
+    <main class="container">
+      <section id= "intro" class="intro">
+        <h1> Welcome to Bookipedia</h1>
+        <p> Do you enjoy reading and want to learn more
+          about your favorite books? Or simply want to find new books
+          to love?
+        </p>
+        <p> Then you're in the right place! Click the search
+          button and start exploring. 
+        </p>
+      </section>
   
+      <section id="books"></section>
+    </main>
   
-  
-<section id= "intro" class="intro">
-    <h1> Welcome to Bookipedia</h1>
-    <p> Do you enjoy reading and want to learn more
-      about your favorite books? Or simply want to find new books
-      to love?
-    </p>
-    <p> Then you're in the right place! Click the search
-      button and start exploring. 
-    </p>
-
-
-
-  </section>
 
     <footer class="footer">
         <div class="content has-text-centered">

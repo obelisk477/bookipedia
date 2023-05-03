@@ -154,19 +154,31 @@ function handleFavoriteClick(event) {
     bookIcon.classList.remove('fa-beat-fade')
   }, 850)
 
-  let favoriteBooks = JSON.parse(localStorage.getItem('favoriteBooks'))
-  let favoriteTitle = event.target.parentElement.children[1].querySelector('p').innerText
-  
-  if (!favoriteBooks) {
-    localStorage.setItem('favoriteBooks', JSON.stringify([]))
-  }
+  let favoriteTitle = event.target.parentElement.children[1].querySelector('p').innerText;
+  let favoriteAuthor = event.target.parentElement.children[1].querySelector('a').innerText;
+  let favoriteYear = event.target.parentElement.children[1].querySelector('i').innerText;
+  let favoriteDescription = event.target.parentElement.children[1].querySelectorAll('p')[1].innerText;
 
-  if (favoriteBooks) {
-    if (favoriteBooks.indexOf(favoriteTitle) < 0 ) {
-      favoriteBooks.push(favoriteTitle)
-    } 
-  }
-  localStorage.setItem('favoriteBooks', JSON.stringify(favoriteBooks))
+  let storeFavs = (...books) => {
+    let data = { "title":books[0], "author":books[1], "year":books[2], "description":books[3]}
+    var favoriteBooks = []
+    var books = {}
+
+    if (localStorage.getItem("favoriteBooks") === null){   
+        books.favoriteBooks = favoriteBooks
+    } else {
+        try {
+            books = JSON.parse(localStorage.getItem("favoriteBooks"));
+            console.log(books);
+        } catch {
+            books.favoriteBooks = favoriteBooks
+        }            
+    }
+    books.favoriteBooks.push(data);
+    localStorage.setItem("favoriteBooks", JSON.stringify(books));
+}
+storeFavs(favoriteTitle, favoriteAuthor, favoriteYear, favoriteDescription);
+ 
 }
 
 

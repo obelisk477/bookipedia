@@ -67,3 +67,10 @@ footer {
     margin-top: 10px;
 }
 
+#logo {
+    width: 200px;
+    max-height: none;
+}
+#searchForm {
+    margin-top: 10px;
+}
