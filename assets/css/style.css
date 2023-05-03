@@ -1,40 +1,16 @@
 :root { 
-    /* for later */
-    --primary:#B7B7B7;
-    --secondary: #7C96AB;
-    --highlights: #BFCCB5 ;
+    --primary:#739e82;
+    --highlights: #d38b5d ;
 }
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 #books{
     display: flex;
     flex-direction: column;
     margin-top: 15px;
-    /* padding: 25px; */
-}
-
-#authorName{
-    display: flex;
-    flex-direction: column;
-}
-#bookColumns{
-    display: flex;
-    flex-direction: row;
-    justify-content:space-evenly
-}
-#search {
-    /* background-color: var(--secondary); */
-    background-color: #d38b5d;
-    ;
-}
-#footer {
-    /* background-color: var(--primary); */
-    background-color: #739e82;
 }
 h1 {
     font-weight: bolder;
@@ -60,12 +36,17 @@ nav .control {
 strong {
     color: black;
 }
+footer {
+    margin-top: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; 
+}
 a.navbar-item:hover {
-    /* color: var(--secondary);  */
-    color: #739e82;
+    color: var(--primary);
     cursor:pointer;  
 }
-
 .intro{
     text-align: center;
     padding: 10px;
@@ -82,22 +63,28 @@ a.navbar-item:hover {
     padding: 5px;
 }
 .navbar {
-    background-color: #739e82;
+    background-color: var(--primary);
 }
 .navbar-item{
     color: black;
 }
 
 .footer {
-    /* background-color: var(--primary); */
-    background-color: #739e82;
+    background-color: var(--primary);
 }
 
-footer {
-    margin-top: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem; 
-
+#authorName{
+    display: flex;
+    flex-direction: column;
+}
+#bookColumns{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly
+}
+#search {
+    background-color: var(--highlights);
+}
+#footer {
+    background-color: var(--primary);
 }
