@@ -7,7 +7,7 @@ let searchForm = $("#searchForm")
 let author = "";
 let favoritesBtn = $("#favorite")
 let favoriteSection = $("#favoriteSection");
-
+let footerclass = document.querySelector(".footer");  
 
 //Removed function from click event to allow search with 'submit'/enter key OR clicking button
 searchBtn.on("click", function(){
@@ -15,6 +15,8 @@ searchBtn.on("click", function(){
    $("#intro").hide()
    $("#favoriteSection").hide()
    $("#books").show()
+   footerclass.classList.remove('footer'); 
+   footerclass.classList.add('footerPosition')
 
 });
 searchForm.on("submit",function(){
@@ -22,6 +24,8 @@ searchForm.on("submit",function(){
   $("#intro").hide()
   $("#favoriteSection").hide()
    $("#books").show()
+  footerclass.classList.remove('footer'); 
+  footerclass.classList.remove('footerPosition'); 
 })
 
 
