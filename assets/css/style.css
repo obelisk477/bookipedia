@@ -74,3 +74,14 @@ footer {
 #searchForm {
     margin-top: 10px;
 }
+
+.collapsed {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+p.noexpand + a {
+    display: none;
+}

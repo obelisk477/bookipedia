@@ -114,10 +114,15 @@ function getBooks(books){
         }
         
       }
-      
-      
-
-    
+      window.setTimeout(function() {
+        $(".description").each(function() {
+          let element = this;
+          console.log("The element", element, "scrollHeight", element.scrollHeight, "clientHeight", element.clientHeight)
+          if (element.scrollHeight <= element.clientHeight) {
+            element.classList.add("noexpand")
+          }
+        });
+      }, 500);
 
     })}
 
@@ -136,16 +141,39 @@ function getBooks(books){
           <strong>${title}</strong> <small>${author}</small> <small><i>${year}</i></small>
           <br>
         </p>
-        <p style="height:3em;overflow:hidden;">
+        <p class="description collapsed">
         ${description}
         </p>
+        <a href="#" class="showmore">More...</a>
+        <a href="#" class="showless" style="display:none">Less</a>
       </div>
     </div>
     <i class="fa-solid fa-2xl fa-book-medical"></i>`;
-    let bookIcon = cuteBookCard.querySelector('.fa-solid')
-    bookIcon.addEventListener('click', handleFavoriteClick )
-    return cuteBookCard
+    let bookIcon = cuteBookCard.querySelector('.fa-solid');
+    bookIcon.addEventListener('click', handleFavoriteClick );
+    let desc = cuteBookCard.querySelector(".description");
+    let moreButton = cuteBookCard.querySelector(".showmore");
+    let lessButton = cuteBookCard.querySelector(".showless");
+    moreButton.addEventListener('click', expandDescriptionFunc(desc,moreButton,lessButton));
+    lessButton.addEventListener('click', collapseDescriptionFunc(desc,moreButton,lessButton));
+    return cuteBookCard;
   }
+
+function expandDescriptionFunc(desc,more,less) {
+  return function(event) {
+    desc.classList.remove("collapsed")
+    more.setAttribute("style", "display:none");
+    less.setAttribute("style", "");
+  }
+}
+
+function collapseDescriptionFunc(desc,more,less) {
+  return function(event) {
+    desc.classList.add("collapsed")
+    less.setAttribute("style", "display:none");
+    more.setAttribute("style", "");
+  }
+}
 
 function handleFavoriteClick(event) {
   let bookIcon = event.target
@@ -180,5 +208,4 @@ function handleFavoriteClick(event) {
 storeFavs(favoriteTitle, favoriteAuthor, favoriteYear, favoriteDescription);
  
 }
-
 
