@@ -1,29 +1,25 @@
 :root { 
-    /* for later */
-    --primary: ;
-    --secondary: ;
-    --highlights: ;
+    --primary:#739e82;
+    --highlights: #d38b5d ;
 }
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 #books{
     display: flex;
     flex-direction: column;
+    margin-top: 15px;
+}
+h1 {
+    font-weight: bolder;
 }
 
-#authorName{
-    display: flex;
-    flex-direction: column;
-}
-#bookColumns{
-    display: flex;
-    flex-direction: row;
-    justify-content:space-evenly
+h1,
+p {
+    color: black;
+
 }
 
 table {
@@ -31,12 +27,26 @@ table {
 }
 
 nav {
-    margin: 10px;
+    padding-top: 5px;
+   
 }
 nav .control {
     margin-top: 5px;
 }
-
+strong {
+    color: black;
+}
+footer {
+    position:absolute; 
+    margin-top: 10px;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; 
+}
+a.navbar-item:hover {
+    color: var(--primary);
+    cursor:pointer;  
+}
 .intro{
     text-align: center;
     padding: 10px;
@@ -62,19 +72,40 @@ nav .control {
     font-size: 18px;
     padding: 5px;
 }
-
-footer {
-    margin-top: 10px;
+.navbar {
+    background-color: var(--primary);
+}
+.navbar-item{
+    color: black;
+    font-weight: bold;
 }
 
+.footer {
+    background-color: var(--primary);
+}
+#authorName{
+    display: flex;
+    flex-direction: column;
+}
+#bookColumns{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly
+}
+#search {
+    background-color: var(--highlights);
+}
+#footer {
+    background-color: var(--primary);
+}
 #logo {
     width: 200px;
     max-height: none;
+    font-weight: bold;
 }
 #searchForm {
     margin-top: 10px;
 }
-
 
 #modal {
     padding: 10px;
@@ -100,9 +131,6 @@ footer {
     margin-left: 35%
 }
 
-
-
-
 .collapsed {
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -112,4 +140,20 @@ footer {
 
 p.noexpand + a {
     display: none;
+}
+
+.footer {
+    position:absolute; 
+    margin-top: 10px;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; 
+}
+
+.footerPosition{
+    position: relative;
+    background-color: var(--primary);
+    width: 100%;
+    height: 2.5rem; 
+    bottom: 0;
 }
