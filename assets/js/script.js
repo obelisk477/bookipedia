@@ -5,18 +5,66 @@ let bookColumns = $("#bookColumns");
 let search = searchBar.textContent; 
 let searchForm = $("#searchForm")
 let author = "";
-
+let favoritesBtn = $("#favorite")
+let favoriteSection = $("#favoriteSection");
 
 
 //Removed function from click event to allow search with 'submit'/enter key OR clicking button
 searchBtn.on("click", function(){
    doSearch();
    $("#intro").hide()
+   $("#favoriteSection").hide()
+   $("#books").show()
+
 });
-searchForm.on("submit",function(event){
+searchForm.on("submit",function(){
   doSearch();
   $("#intro").hide()
+  $("#favoriteSection").hide()
+   $("#books").show()
 })
+
+
+// Favorite Tab 
+favoritesBtn.on("click", function(){
+  // doSearch();
+  $("#intro").hide()
+  $("#books").hide()
+  $("#favoriteSection").show()
+
+
+
+  let data = localStorage.getItem("favoriteBooks");
+    let favBooks = JSON.parse(data);
+
+    favBooks.favoriteBooks.forEach(function (book, i) {
+        let favorite = createFavorite(book.thumbnailLink, book.title, book.author, book.year, book.description)
+        favoriteSection[0].appendChild(favorite);
+    });
+});
+
+function createFavorite(thumbnailLink, title, author, year, description) {
+  let favBookCard = document.createElement("article")
+  favBookCard.className = "media m-5"
+  favBookCard.innerHTML=`
+  <figure class="media-left"> 
+    <p class="image is-64x64">
+      <img src="${thumbnailLink}">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>${title}</strong> <small>${author}</small> <small><i>${year}</i></small>
+        <br>
+      </p>
+      <p style="height:3em;overflow:hidden;">
+      ${description}
+      </p>
+    </div>
+  </div>`;
+  return favBookCard
+}
 
 
 //Function takes user input, checks if there is input, executes getBooks function w/API call with user input 
@@ -154,13 +202,14 @@ function handleFavoriteClick(event) {
     bookIcon.classList.remove('fa-beat-fade')
   }, 850)
 
-  let favoriteTitle = event.target.parentElement.children[1].querySelector('p').innerText;
+  let favoriteTitle = event.target.parentElement.children[1].querySelectorAll('strong')[0].textContent;
   let favoriteAuthor = event.target.parentElement.children[1].querySelector('a').innerText;
   let favoriteYear = event.target.parentElement.children[1].querySelector('i').innerText;
   let favoriteDescription = event.target.parentElement.children[1].querySelectorAll('p')[1].innerText;
+  let favoriteThumbnail = event.target.parentElement.children[0].querySelector('img').src;
 
   let storeFavs = (...books) => {
-    let data = { "title":books[0], "author":books[1], "year":books[2], "description":books[3]}
+    let data = { "title":books[0], "author":books[1], "year":books[2], "description":books[3], "thumbnailLink":books[4]}
     var favoriteBooks = []
     var books = {}
 
@@ -177,8 +226,9 @@ function handleFavoriteClick(event) {
     books.favoriteBooks.push(data);
     localStorage.setItem("favoriteBooks", JSON.stringify(books));
 }
-storeFavs(favoriteTitle, favoriteAuthor, favoriteYear, favoriteDescription);
+storeFavs(favoriteTitle, favoriteAuthor, favoriteYear, favoriteDescription, favoriteThumbnail);
  
 }
+
 
 
