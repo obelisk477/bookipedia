@@ -31,9 +31,8 @@ searchForm.on("submit",function(){
   $("#favoriteSection").hide()
    $("#books").show()
   footerclass.classList.remove('footer'); 
-  footerclass.classList.remove('footerPosition'); 
+  footerclass.classList.add('footerPosition'); 
 })
-
 
 // Favorite Tab 
 favoritesBtn.on("click", function(){
@@ -41,7 +40,8 @@ favoritesBtn.on("click", function(){
   $("#intro").hide()
   $("#books").hide()
   $("#favoriteSection").show()
-
+  footerclass.classList.remove('footer'); 
+  footerclass.classList.add('footerPositionFavorites'); 
 
 
   let data = localStorage.getItem("favoriteBooks");
