@@ -23,6 +23,7 @@ searchBtn.on("click", function(){
    $("#books").show()
    footerclass.classList.remove('footer'); 
    footerclass.classList.add('footerPosition')
+    
 
 });
 searchForm.on("submit",function(){
@@ -32,6 +33,7 @@ searchForm.on("submit",function(){
    $("#books").show()
   footerclass.classList.remove('footer'); 
   footerclass.classList.add('footerPosition'); 
+   
 })
 
 // Favorite Tab 
@@ -39,13 +41,21 @@ favoritesBtn.on("click", function(){
   $("#intro").hide()
   $("#books").hide()
   $("#favoriteSection").show()
-  footerclass.classList.remove('footer'); 
-  footerclass.classList.add('footerPositionFavorites'); 
+  checkFeetsies(); 
   loadFavorites();
 
 });
+function checkFeetsies(){
+  if ($('section #stickyFeet').length < 2){
+    footerclass.classList.remove('footer'); 
+    footerclass.classList.add('footerPosition2');
+}else{
+  footerclass.classList.remove('footerPosition2');
+  footerclass.classList.add('footerPosition'); 
+}}
 
 function loadFavorites (){
+  
   favoriteSection[0].innerHTML = "";
   let data = localStorage.getItem("favoriteBooks");
     let favBooks = JSON.parse(data);
@@ -72,10 +82,12 @@ function loadFavorites (){
         favoriteSection[0].appendChild(favorite);
       }
     });
+    checkFeetsies(); 
 }
 
 function createFavorite(thumbnailLink, title, author, year, description) {
-  let favBookCard = document.createElement("article")
+  let favBookCard = document.createElement("article"); 
+  favBookCard.id = "stickyFeet"
   favBookCard.className = "media m-5"
   favBookCard.innerHTML=`
   <figure class="media-left"> 
@@ -104,6 +116,7 @@ function createFavorite(thumbnailLink, title, author, year, description) {
   let lessButton = favBookCard.querySelector(".showless");
   moreButton.addEventListener('click', expandDescriptionFunc(desc,moreButton,lessButton));
   lessButton.addEventListener('click', collapseDescriptionFunc(desc,moreButton,lessButton));
+  checkFeetsies(); 
   return favBookCard
 }
 
@@ -128,6 +141,7 @@ function removeFavBook(event) {
   removeBooks = JSON.stringify(removeBooks);
   localStorage.setItem("favoriteBooks", removeBooks);
   loadFavorites();
+  checkFeetsies(); 
 }
 
 //Function takes user input, checks if there is input, executes getBooks function w/API call with user input 
@@ -326,9 +340,10 @@ function handleFavoriteClick(event) {
       books.favoriteBooks.push(data);
     }
     localStorage.setItem("favoriteBooks", JSON.stringify(books));
+    checkFeetsies(); 
 }
+checkFeetsies(); 
 storeFavs(favoriteTitle, favoriteAuthor, favoriteYear, favoriteDescription, favoriteThumbnail);
- 
 }
 
 closeModalBtn.addEventListener('click', () => {

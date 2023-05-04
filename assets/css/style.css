@@ -148,6 +148,7 @@ p.noexpand + a {
 
 .footer {
     position:absolute; 
+    background-color: var(--primary);
     margin-top: 10px;
     bottom: 0;
     width: 100%;
@@ -163,7 +164,8 @@ p.noexpand + a {
     bottom: 0;
     padding:2.4rem; 
 }
-.footerPositionFavorites{
+
+.footerPosition2{
     position: absolute;
     background-color: var(--primary);
     width: 100%;
@@ -171,6 +173,8 @@ p.noexpand + a {
     bottom: 0;
     padding:2.4rem; 
 }
+
+
 
 
 
