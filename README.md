@@ -24,6 +24,8 @@ Dialogue HTML element overview learned from [WebDevSimplified](https://www.youtu
 
 This project uses the following libraries and frameworks:
 
+- [Wikipedia API](https://www.mediawiki.org/wiki/API:Main_page) -- API
+- [Google Books API v1](https://developers.google.com/books/docs/v1/using) -- API
 - [Bulma IO v0.9.4](https://bulma.io/) -- CSS Framework
 - [Font Awesome v4](https://fontawesome.com/v4/get-started/) -- Iconography
 - [jQuery v3.5.1](https://jquery.com/download/) -- JS Library for DOM manipluation
