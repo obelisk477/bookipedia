@@ -22,6 +22,7 @@ searchBtn.on("click", function(){
    $("#favoriteSection").hide()
    $("#books").show()
    footerclass.classList.remove('footer'); 
+   footerclass.classList.remove('footerPosition2')
    footerclass.classList.add('footerPosition')
     
 
@@ -32,6 +33,7 @@ searchForm.on("submit",function(){
   $("#favoriteSection").hide()
    $("#books").show()
   footerclass.classList.remove('footer'); 
+  footerclass.classList.remove('footerPosition2')
   footerclass.classList.add('footerPosition'); 
    
 })
@@ -46,7 +48,7 @@ favoritesBtn.on("click", function(){
 
 });
 function checkFeetsies(){
-  if ($('section #stickyFeet').length < 2){
+  if ($('section #stickyFeet').length < 3){
     footerclass.classList.remove('footer'); 
     footerclass.classList.add('footerPosition2');
 }else{
@@ -340,9 +342,9 @@ function handleFavoriteClick(event) {
       books.favoriteBooks.push(data);
     }
     localStorage.setItem("favoriteBooks", JSON.stringify(books));
-    checkFeetsies(); 
+     
 }
-checkFeetsies(); 
+ 
 storeFavs(favoriteTitle, favoriteAuthor, favoriteYear, favoriteDescription, favoriteThumbnail);
 }
 
