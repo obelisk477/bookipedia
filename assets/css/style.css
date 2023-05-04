@@ -172,3 +172,20 @@ p.noexpand + a {
     padding:2.4rem; 
 }
 
+
+
+@media screen and (max-width: 1023px) {
+    .navbar-item {
+        display: inline-flex;
+    }
+    .navbar-menu {
+        text-align: center;
+        background-color: var(--primary);
+        padding: 0.5rem 0;
+    }
+    .navbar-start #searchForm {
+        margin-bottom: 5px;
+        display: inline-flex;
+    }
+}
+
