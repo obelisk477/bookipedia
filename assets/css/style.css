@@ -7,6 +7,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: bisque; 
+    min-height: 100vh;
+}
 #books{
     display: flex;
     flex-direction: column;
@@ -148,6 +152,7 @@ p.noexpand + a {
     bottom: 0;
     width: 100%;
     height: 2.5rem; 
+    padding: 2.4rem;
 }
 
 .footerPosition{
@@ -156,6 +161,17 @@ p.noexpand + a {
     width: 100%;
     height: 2.5rem; 
     bottom: 0;
+    padding:2.4rem; 
+}
+.footerPositionFavorites{
+    position: absolute;
+    background-color: var(--primary);
+    width: 100%;
+    height: 2.5rem; 
+    bottom: 0;
+    padding:2.4rem; 
+}
+
 }
 
 @media screen and (max-width: 1023px) {
@@ -172,3 +188,4 @@ p.noexpand + a {
         display: inline-flex;
     }
 }
+
