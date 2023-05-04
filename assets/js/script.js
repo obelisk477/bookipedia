@@ -36,22 +36,43 @@ searchForm.on("submit",function(){
 
 // Favorite Tab 
 favoritesBtn.on("click", function(){
-  // doSearch();
   $("#intro").hide()
   $("#books").hide()
   $("#favoriteSection").show()
   footerclass.classList.remove('footer'); 
   footerclass.classList.add('footerPositionFavorites'); 
+  loadFavorites();
 
+});
 
+function loadFavorites (){
+  favoriteSection[0].innerHTML = "";
   let data = localStorage.getItem("favoriteBooks");
     let favBooks = JSON.parse(data);
 
-    favBooks.favoriteBooks.forEach(function (book, i) {
+    favBooks.favoriteBooks.forEach(function (book, i) {     
+
+      let favAuthorLink = ""
+      let favAuthorTag = ""
+      if (book.author) {
+        let encodedAuthor = encodeURIComponent(book.author)
+        fetch(`https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&list=search&formatversion=2&srsearch=${encodedAuthor}`)
+        .then((response) => {
+          return response.json()
+        }).then((data) => {
+          let pageHandle = data.query.search[0].title.replace(' ','_')
+          favAuthorLink = `https://en.wikipedia.org/wiki/${pageHandle}`
+          favAuthorTag = `<a href="${favAuthorLink}">${data.query.search[0].title}</a>`
+  
+          let favorite = createFavorite(book.thumbnailLink, book.title, favAuthorTag, book.year, book.description)
+        favoriteSection[0].appendChild(favorite);
+        })
+      } else {
         let favorite = createFavorite(book.thumbnailLink, book.title, book.author, book.year, book.description)
         favoriteSection[0].appendChild(favorite);
+      }
     });
-});
+}
 
 function createFavorite(thumbnailLink, title, author, year, description) {
   let favBookCard = document.createElement("article")
@@ -68,14 +89,46 @@ function createFavorite(thumbnailLink, title, author, year, description) {
         <strong>${title}</strong> <small>${author}</small> <small><i>${year}</i></small>
         <br>
       </p>
-      <p style="height:3em;overflow:hidden;">
-      ${description}
+      <p class="description collapsed">
+        ${description}
       </p>
+      <a href="#" class="showmore">More...</a>
+      <a href="#" class="showless" style="display:none">Less</a>
     </div>
-  </div>`;
+  </div>
+  <i class="fa-solid fa-xmark"></i>`;
+  let removeFav = favBookCard.querySelector('.fa-solid');
+  removeFav.addEventListener('click', removeFavBook);
+  let desc = favBookCard.querySelector(".description");
+  let moreButton = favBookCard.querySelector(".showmore");
+  let lessButton = favBookCard.querySelector(".showless");
+  moreButton.addEventListener('click', expandDescriptionFunc(desc,moreButton,lessButton));
+  lessButton.addEventListener('click', collapseDescriptionFunc(desc,moreButton,lessButton));
   return favBookCard
 }
 
+function removeFavBook(event) {
+  let removeIcon = event.target
+  removeIcon.classList.add('fa-beat-fade')
+  setTimeout(() => {
+    removeIcon.classList.remove('fa-beat-fade')
+  }, 850)
+
+  let favoriteTitle = event.target.parentElement.children[1].querySelectorAll('strong')[0].textContent;
+  let favoriteAuthor = event.target.parentElement.children[1].querySelector('a').innerText;
+  let favoriteYear = event.target.parentElement.children[1].querySelector('i').innerText;
+
+  var removeBooks = JSON.parse(localStorage.getItem("favoriteBooks"));
+
+  removeBooks.favoriteBooks.forEach(function (book, i) {
+    if (removeBooks.favoriteBooks[i].title === favoriteTitle && removeBooks.favoriteBooks[i].author === favoriteAuthor && removeBooks.favoriteBooks[i].year === favoriteYear) {
+        removeBooks.favoriteBooks.splice(i, 1);
+    }
+});
+  removeBooks = JSON.stringify(removeBooks);
+  localStorage.setItem("favoriteBooks", removeBooks);
+  loadFavorites();
+}
 
 //Function takes user input, checks if there is input, executes getBooks function w/API call with user input 
 function doSearch() {
@@ -115,7 +168,6 @@ function getBooks(books){
         return response.json()
       } else {
         response.json().then((data) => {
-          console.log(data)
           modal.getElementsByTagName('p')[0].innerText = "Error: " + data.error.message
           modal.showModal()
           return
@@ -123,7 +175,6 @@ function getBooks(books){
       }
     })
     .then(function (data) {
-      console.log(data);
       for (let i=0; i < data.items.length; i++){
         //Grabs the thumbnail by using fetchFromObject function 
         //Checks if there is no URL listed, to have some kind of blank or placeholder image? 
@@ -168,7 +219,6 @@ function getBooks(books){
     
             let cuteBookCard = createBookCard(thumbnail_url, title, authorTag, year, description)
             booksList[0].appendChild(cuteBookCard);
-            // $("#intro").hide();
           })
         } else {
           //createElement on article which uses the format of bulma for a tweet layout, just modified slightly 
@@ -181,7 +231,6 @@ function getBooks(books){
       window.setTimeout(function() {
         $(".description").each(function() {
           let element = this;
-          console.log("The element", element, "scrollHeight", element.scrollHeight, "clientHeight", element.clientHeight)
           if (element.scrollHeight <= element.clientHeight) {
             element.classList.add("noexpand")
           }
@@ -262,12 +311,20 @@ function handleFavoriteClick(event) {
     } else {
         try {
             books = JSON.parse(localStorage.getItem("favoriteBooks"));
-            console.log(books);
         } catch {
             books.favoriteBooks = favoriteBooks
         }            
     }
-    books.favoriteBooks.push(data);
+
+    let foundDuplicate = false; 
+      books.favoriteBooks.forEach(function (book, i) {
+          if(book.title === favoriteTitle && book.author === favoriteAuthor && book.year === favoriteYear){
+            foundDuplicate = true; 
+          }
+    });
+    if(!foundDuplicate) {
+      books.favoriteBooks.push(data);
+    }
     localStorage.setItem("favoriteBooks", JSON.stringify(books));
 }
 storeFavs(favoriteTitle, favoriteAuthor, favoriteYear, favoriteDescription, favoriteThumbnail);
