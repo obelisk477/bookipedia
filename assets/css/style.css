@@ -148,6 +148,7 @@ p.noexpand + a {
 
 .footer {
     position:absolute; 
+    background-color: var(--primary);
     margin-top: 10px;
     bottom: 0;
     width: 100%;
@@ -163,12 +164,32 @@ p.noexpand + a {
     bottom: 0;
     padding:2.4rem; 
 }
-.footerPositionFavorites{
+
+.footerPosition2{
     position: absolute;
     background-color: var(--primary);
     width: 100%;
     height: 2.5rem; 
     bottom: 0;
     padding:2.4rem; 
+}
+
+
+
+
+
+@media screen and (max-width: 1023px) {
+    .navbar-item {
+        display: inline-flex;
+    }
+    .navbar-menu {
+        text-align: center;
+        background-color: var(--primary);
+        padding: 0.5rem 0;
+    }
+    .navbar-start #searchForm {
+        margin-bottom: 5px;
+        display: inline-flex;
+    }
 }
 

@@ -12,6 +12,9 @@ In the the search results below, you can see more information about each of the 
 
 If you'd like to view your favorite saved books, simply  click on the 'Favorites' link on the top right of the page. This will take you to a history of books that you've saved. And if you want to remove them from your favorites, you can do so there as well by clicking on the remove icon.
 
+![bookipedia-home_720](https://user-images.githubusercontent.com/110988589/236334018-e258c2f6-a7d9-415e-aa58-d73ce9315fcf.png)
+
+![bookipedia-fav_720](https://user-images.githubusercontent.com/110988589/236334005-bfe1c535-64f8-404c-aea6-8185c205f21a.png)
 
 ## Credits
 
@@ -21,6 +24,8 @@ Dialogue HTML element overview learned from [WebDevSimplified](https://www.youtu
 
 This project uses the following libraries and frameworks:
 
+- [Wikipedia API](https://www.mediawiki.org/wiki/API:Main_page) -- API
+- [Google Books API v1](https://developers.google.com/books/docs/v1/using) -- API
 - [Bulma IO v0.9.4](https://bulma.io/) -- CSS Framework
 - [Font Awesome v4](https://fontawesome.com/v4/get-started/) -- Iconography
 - [jQuery v3.5.1](https://jquery.com/download/) -- JS Library for DOM manipluation
