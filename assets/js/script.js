@@ -58,7 +58,7 @@ function createFavorite(thumbnailLink, title, author, year, description) {
   favBookCard.className = "media m-5"
   favBookCard.innerHTML=`
   <figure class="media-left"> 
-    <p class="image is-64x64">
+    <p class="image is-66x66">
       <img src="${thumbnailLink}">
     </p>
   </figure>
@@ -195,7 +195,7 @@ function getBooks(books){
     cuteBookCard.className = "media m-5"
     cuteBookCard.innerHTML=`
     <figure class="media-left"> 
-      <p class="image is-64x64">
+      <p class="image is-66x66">
         <img src="${thumbnailLink}">
       </p>
     </figure>

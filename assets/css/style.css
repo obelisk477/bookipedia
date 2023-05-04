@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: rgb(237, 198, 177);
+    background-color: bisque; 
     min-height: 100vh;
 }
 #books{
